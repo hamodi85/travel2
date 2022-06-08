@@ -1,0 +1,103 @@
+
+<!DOCTYPE HTML>
+<!--
+	Epilogue by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<style>
+			.arrow_back {
+				width:60px;
+				padding-left:25px;
+				padding-top: 25px;
+			}
+
+			.banner_123{width: 800px;}
+
+			
+
+		</style>
+		<title>TravelHub - About</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<link rel="icon" type="image/jpg" href="{{url_for('static', filename='images/TravelHubLogo.png')}}">
+	</head>
+	<body>
+
+
+
+ <!-- -------------------------------------------BODY-BELOW--------------------------------------------------------------------->
+
+ 	<a href="http://127.0.0.1:5000/index.html"><div><img class="arrow_back" src="{{url_for('static', filename='images/arrow_back.png')}}"></div></a>
+		<!--------------------------------------------------------------------- ItemBox --------------------------------------------------------------------->
+			<div id="wrapper">
+
+				<center><h2>{{place.name_of_place}}</h2></center>
+					<section id="intro" class="main">
+						<p id = "descriptionParag">{{place.description}}</p>
+						<img class ="banner_123" src="{{place.imglink}}">
+							<br>
+							<br> 
+						<ul class="actions">
+							<center><p>Written By : {{place.user}}</p></center>
+						</ul><br>
+						<p> Based on the Sentemint Analysis Calculations, the overall sentemint of this review is {{polarity}} </p>
+						<br><br>
+						<button class="getImagesButton">
+          					Get An Online Image Of This Place
+        				</button>
+        				<br><br>
+						<img class ="imageToDisplay">
+					</section>
+		<!---------------------------------------------------------------------End Of ItemBox ------------------------------------------------------------------>
+
+				<!-- Footer 
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://twitter.com/soooolllllllll" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.instagram.com/sol_diab/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="mailto:soldiab12@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>-->
+						<p class="copyright">&copy; TravelHub. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/skel.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+
+			<script>
+				//the requestedUrl is the request that is getting sent to the server which replies with a large amount of photos and the code below chooses a random picture from the pictues list (allImages) with the random number which is generated below in the function, and then it assigns it to the image src in the html.
+				const requestUrl =
+      				'https://api.unsplash.com/search/photos?query=' + {{place.name_of_place|tojson}} + '&client_id=n6DhVUH8BMthREDICwDLkQtEjqWPevvoojuU2482E9c';
+
+      			const imageToDisplay = document.querySelector('.imageToDisplay');
+      			const getImagesButton = document.querySelector('.getImagesButton');
+
+
+      			getImagesButton.addEventListener('click', async () => {
+      			let randomImage = await getNewImage();
+     				imageToDisplay.src = randomImage;
+    			});
+
+
+      			async function getNewImage() {
+      				let randomNumber = Math.floor(Math.random() * 10);
+      				return fetch(requestUrl)
+        				.then((response) => response.json())
+        				.then((data) => {
+          				let allImages = data.results[randomNumber];
+          				return allImages.urls.regular;
+        			});
+    			}
+			</script>
+
+	</body>
+</html>

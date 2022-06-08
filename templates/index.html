@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<!--
+	Epilogue by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>TravelHub - Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	    <link rel="icon" type="image/jpg" href="{{url_for('static', filename='images/TravelHubLogo.png')}}">	
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+	</head>
+	<body>
+	
+	
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner">
+					<h1>TravelHub</h1>
+					<p>A place to talk about your adventures around the world</p>
+
+				</div>
+			</header>
+			<div>
+						<!--		<button type="button" style="margin: 0px auto;">Sign Up!</button>
+								<button type="button" style="margin: 0px auto;">Login!</button>
+-->
+					<section id="intro" class="main">
+
+						<ul class="actions">
+							<li><a href="/signup" class="button big">Sign Up</a></li>
+							<li><a href="/signin" class="button big">Log in</a></li>
+						</ul>
+					</section>
+			</div>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Banner -->
+					<section id="intro" class="main">
+						<span class="icon fa-diamond major"></span>
+						<h2>About Us</h2>
+						<p>We provide you with the best tool to get to know more places around with one single click <br> this website will show you what other users have experienced all over the world.</p>
+						<ul class="actions">
+							<li><a href="about.html" class="button big">Learn More</a></li>
+						</ul>
+					</section>
+
+
+
+					{% if places %}
+							<center>
+								<h1>Fetured Places</h1>
+							</center>
+
+				<!-- Items -->
+					<section class="main items">
+						
+							{% for place in places[:4] %}
+							
+							<article class="item">
+								<header>
+									<a href="/place.html/{{place.id}}"><img src="{{place.imglink}}" alt="" /></a>
+									<h3>{{place.name_of_place}}</h3>
+								</header>
+									<p>{{place.description[:100] + "..."}}</p>
+								<ul class="actions">
+									<li><a href="/place.html/{{place.id}}" class="button">Read More!</a></li>
+								</ul>
+							</article>
+							
+							{% endfor %}
+
+					
+						
+					</section>
+					{% endif %}
+					<center>
+					<h1>Check Out The Full List of Places!</h1>
+						<a href="list.html" class="button">Full List</a>
+					</center>
+				<br>
+				<center>________________________________________________________________________________________________________________</center>
+				<!-- CTA -->
+					<section id="cta" class="main special">
+						<h2>Upload Your Story For Other people.</h2>
+						<p>Start by uploading your story for other people to see.</p>
+						<ul class="actions">
+							<li><a href="upload.html" class="button big">Upload Your Story</a></li>
+						</ul>
+					</section>
+
+				<!-- Main -->
+				<!--
+					<section id="main" class="main">
+						<header>
+							<h2>Lorem ipsum dolor</h2>
+						</header>
+						<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+					</section>
+				-->
+
+				<!-- Footer
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://twitter.com/soooolllllllll" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.instagram.com/sol_diab/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="mailto:soldiab12@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul> -->
+						<p class="copyright">&copy; TravelHub. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/skel.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

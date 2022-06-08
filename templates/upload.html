@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Epilogue by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<style>
+			.arrow_back {
+				width:60px;
+				padding-left:25px;
+				padding-top: 25px;
+			}
+
+			.arrowback_link:visited {
+				 
+				 text-decoration: none; 
+			}
+
+			#arrow_back_div
+			{
+				width:60px;
+			}
+			
+			
+		</style>
+		<title>TravelHub - Upload</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<link rel="icon" type="image/jpg" href="{{url_for('static', filename='images/TravelHubLogo.png')}}">
+	</head>
+<!--
+	<script type="text/javascript">
+		
+		const nameOfplace = document.getElementById('nameOfplace');
+		const desc = document.getElementById('subject');
+		const form  = document.getElementsByTagName('makePlace')[0];
+
+
+		form.addEventListener('submit', function (event) {
+  			// if the nameOfPlace field is missing the form wont submit
+  			if(nameOfplace.validity.tooShort) {
+    			nameOfplaceError.textContent = `The place's name should be at least ${ nameOfplace.minLength } characters long`
+    			event.preventDefault();
+  			}
+  			else if(desc.validity.tooShort){
+  				descError.textContent = `Description should be at least ${ desc.minLength } characters; you entered ${ desc.value.length }.`
+  				event.preventDefault();
+  			}
+		});
+	</script>
+	-->
+
+	<body id="imp">
+
+		<a href="index.html" class="arrowback_link"><div id="arrow_back_div"><img class="arrow_back" src="static/images/arrow_back.png"></div></a> 
+		
+		<center>
+		<img class="logo_upload" src="static/images/TravelHubBlk.png">
+		</center>
+		
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<div class="upload_items">
+				<!-- Banner -->
+					<section id="intro" class="main">
+					
+						<p>Here You Can Upload Your Story for other people to see, you can add an image if you want to do so.<br>
+						You can Write Your Story and Your Adventures in the form below.</p>
+						
+
+								Name Of The Place :
+								<br>
+								
+								<form action="/upload" method="POST" name="makePlace">
+										<input type="text" placeholder="Place's Name" name="nameOfplace" required minlength="1">
+									<br>
+										Decription :
+											<textarea id="subject" name="subject" placeholder="Talk About Your Experience!" style="height:200px" required minlength="200"></textarea>
+									<br>
+										Name :
+											<input type="text" placeholder="Your Name - Leave blank for an anonymous post" name="user">
+									<br>
+										Image Link (Optional):
+											<input type="text" placeholder="Link" name="Link">
+									<br>
+								<br>
+						<ul class="actions">
+							<input type="Submit" name="Submit" class="button big">
+						
+						</ul>
+					</form>
+					</section>
+				</div>
+
+	
+
+				
+
+				<!-- Footer 
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://twitter.com/soooolllllllll" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.instagram.com/sol_diab/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="mailto:soldiab12@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; TravelHub. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+					</footer>-->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/skel.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>
